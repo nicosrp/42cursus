@@ -6,7 +6,7 @@
 /*   By: nsherpa <nsherpa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 16:57:46 by nsherpa           #+#    #+#             */
-/*   Updated: 2023/08/04 18:45:52 by nsherpa          ###   ########.fr       */
+/*   Updated: 2023/08/04 19:13:47 by nsherpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ static int	move_left(t_gamedetails *game)
 	int	j;
 	int	k;
 
-	i = game->x_axis - 1;
-	j = game->y_axis;
+	i = game->player_x - 1;
+	j = game->player_y;
 	if (game->map[j][i] == '1')
 		return (0);
 	k = restricted_moving(game, i, j);
 	if (!k)
 		return (0);
 	game->map[j][i + 1] = '0';
-	ft_printf("Step Counter: %i\n", game->counter);
+	ft_printf("Step Counter: %i\n", game->step_counter);
 	ft_printf("Remaining Items: %i\n", game->collectables);
 	return (1);
 }
@@ -37,15 +37,15 @@ static int	move_right(t_gamedetails *game)
 	int	j;
 	int	k;
 
-	i = game->x_axis + 1;
-	j = game->y_axis;
+	i = game->player_x + 1;
+	j = game->player_y;
 	if (game->map[j][i] == '1')
 		return (0);
 	k = restricted_moving(game, i, j);
 	if (!k)
 		return (0);
 	game->map[j][i - 1] = '0';
-	ft_printf("Step Counter: %i\n", game->counter);
+	ft_printf("Step Counter: %i\n", game->step_counter);
 	ft_printf("Remaining Items: %i\n", game->collectables);
 	return (1);
 }

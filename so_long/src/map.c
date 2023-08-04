@@ -6,7 +6,7 @@
 /*   By: nsherpa <nsherpa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 16:58:08 by nsherpa           #+#    #+#             */
-/*   Updated: 2023/08/04 17:00:44 by nsherpa          ###   ########.fr       */
+/*   Updated: 2023/08/04 19:06:05 by nsherpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ static int	add_line(t_gamedetails *game, char *line)
 	if (!line)
 		return (0);
 	i = 0;
-	game->heightmap++;
-	temporary = (char **)malloc(sizeof(char *) * (game->heightmap + 1));
-	temporary[game->heightmap] = NULL;
-	while (i < game->heightmap - 1)
+	game->map_height++;
+	temporary = (char **)malloc(sizeof(char *) * (game->map_height + 1));
+	temporary[game->map_height] = NULL;
+	while (i < game->map_height - 1)
 	{
 		temporary[i] = game->map[i];
 		i++;
@@ -61,6 +61,6 @@ int	get_mapdata(t_gamedetails *game, char **argv)
 			break ;
 	}
 	close (game->fd);
-	game->widthmap = width_of_map(game->map[0]);
+	game->map_width = width_of_map(game->map[0]);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: nsherpa <nsherpa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 16:58:17 by nsherpa           #+#    #+#             */
-/*   Updated: 2023/08/04 18:45:57 by nsherpa          ###   ########.fr       */
+/*   Updated: 2023/08/04 19:13:49 by nsherpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ static void	check_countsetup(t_gamedetails *game, int h, int w)
 		game->map[h][w] != '0' &&
 		game->map[h][w] != '\n')
 	{
-		ft_printf("\nNo usable Character:%c\n", game->map[h][w]);
+		ft_printf("\nNo usable Character: %c\n", game->map[h][w]);
 		end_game(game);
 	}
-	if (game->map[h][w] == 'C')
-		game->columncount++;
 	if (game->map[h][w] == 'P')
-		game->playercount++;
+		game->check_player++;
 	if (game->map[h][w] == 'E')
-		game->exitcount++;
+		game->check_door++;
+	if (game->map[h][w] == 'C')
+		game->check_cols++;
 }
 
 void	check_mapchars(t_gamedetails *game)
@@ -38,20 +38,20 @@ void	check_mapchars(t_gamedetails *game)
 	int	w;
 
 	h = 0;
-	while (h < game->heightmap - 1)
+	while (h < game->map_height - 1)
 	{
 		w = 0;
-		while (w <= game->widthmap)
+		while (w <= game->map_width)
 		{
 			check_countsetup(game, h, w);
 			w++;
 		}
 		h++;
 	}
-	if (!(game->playercount == 1 && game->columncount > 1
-			&& game->exitcount == 1))
+	if (!(game->check_player == 1 && game->check_cols > 1
+			&& game->check_door == 1))
 	{
-		ft_printf("Character Error (C/P/E)\n");
+		ft_printf("Character Error (P/E/C)\n");
 		end_game(game);
 	}
 }
@@ -61,11 +61,11 @@ static int	is_upperlowerpresent(t_gamedetails *game)
 	int	i;
 	int	j;
 
-	i = game->widthmap;
+	i = game->map_width;
 	j = 0;
 	while (j < i)
 	{
-		if (game->map[0][i] == '1' && game->map[game->heightmap - 1][j] == '1')
+		if (game->map[0][i] == '1' && game->map[game->map_height - 1][j] == '1')
 			return (0);
 		j++;
 	}
@@ -77,9 +77,9 @@ static int	is_leftrightpresent(t_gamedetails *game)
 	int	i;
 	int	j;
 
-	i = game->widthmap;
+	i = game->map_width;
 	j = 0;
-	while (j < game->heightmap)
+	while (j < game->map_height)
 	{
 		if (!(game->map[j][0] == '1' && game->map[j][i - 1] == '1'))
 			return (0);

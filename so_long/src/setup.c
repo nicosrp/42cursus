@@ -6,7 +6,7 @@
 /*   By: nsherpa <nsherpa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 16:57:59 by nsherpa           #+#    #+#             */
-/*   Updated: 2023/08/04 17:58:29 by nsherpa          ###   ########.fr       */
+/*   Updated: 2023/08/04 19:13:41 by nsherpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	setup_player(t_gamedetails *game, int height, int width)
 {
 	mlx_put_image_to_window(game->mlxpointer,
 		game->winpointer, game->player, width * 40, height * 40);
-	game->y_axis = height;
-	game->x_axis = width;
+	game->player_y = height;
+	game->player_x = width;
 }
 
 void	match_images(t_gamedetails *game)
@@ -84,7 +84,7 @@ void	adding_in_graphics(t_gamedetails *game)
 
 	game->collectables = 0;
 	h = 0;
-	while (h < game->heightmap)
+	while (h < game->map_height)
 	{
 		w = 0;
 		while (game->map[h][w])

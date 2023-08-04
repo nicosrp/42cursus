@@ -6,7 +6,7 @@
 /*   By: nsherpa <nsherpa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 16:59:00 by nsherpa           #+#    #+#             */
-/*   Updated: 2023/08/04 18:46:08 by nsherpa          ###   ########.fr       */
+/*   Updated: 2023/08/04 19:11:15 by nsherpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@
 typedef struct t_game
 {
 	int		fd;
-	int		heightmap;
-	int		widthmap;
-	int		playercount;
-	int		columncount;
-	int		exitcount;
-	int		x_axis;
-	int		y_axis;
-	int		counter;
+	int		player_x;
+	int		player_y;
+	int		check_player;
+	int		check_cols;
+	int		check_door;
+	int		map_height;
+	int		map_width;
+	int		step_counter;
 	int		collectables;
 
 	char	**map;
