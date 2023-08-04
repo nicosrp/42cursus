@@ -6,12 +6,13 @@ CFLAGS := -Wall -Wextra -Werror -Iheaders/
 
 SOURCE := src/*.c
 GETNEXTLINE := get_next_line/*c
+FTPRINTF := ft_printf/*c
 LIBRARY := -Lminilibx -lmlx -framework OpenGL -framework AppKit
 MINILIBX := minilibx/
 
 all:
 	make -C $(MINILIBX)
-	$(CC) $(CFLAGS) $(SOURCE) $(GETNEXTLINE) $(LIBRARY) -o $(NAME)
+	$(CC) $(CFLAGS) $(SOURCE) $(GETNEXTLINE) $(FTPRINTF) $(LIBRARY) -o $(NAME)
 
 clean:
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   setup_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prossi <prossi@student.42adel.org.au>      +#+  +:+       +#+        */
+/*   By: nsherpa <nsherpa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 17:33:01 by prossi            #+#    #+#             */
-/*   Updated: 2022/12/12 20:46:47 by prossi           ###   ########.fr       */
+/*   Created: 2023/08/04 16:58:17 by nsherpa           #+#    #+#             */
+/*   Updated: 2023/08/04 18:45:57 by nsherpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ static void	check_countsetup(t_gamedetails *game, int h, int w)
 		game->map[h][w] != '0' &&
 		game->map[h][w] != '\n')
 	{
-		printf("\nNo usable Character:%c\n", game->map[h][w]);
+		ft_printf("\nNo usable Character:%c\n", game->map[h][w]);
 		end_game(game);
 	}
 	if (game->map[h][w] == 'C')
-			game->columncount++;
+		game->columncount++;
 	if (game->map[h][w] == 'P')
-			game->playercount++;
+		game->playercount++;
 	if (game->map[h][w] == 'E')
-			game->exitcount++;
+		game->exitcount++;
 }
 
 void	check_mapchars(t_gamedetails *game)
@@ -51,12 +51,12 @@ void	check_mapchars(t_gamedetails *game)
 	if (!(game->playercount == 1 && game->columncount > 1
 			&& game->exitcount == 1))
 	{
-		printf("Character Error (C/P/E)\n");
+		ft_printf("Character Error (C/P/E)\n");
 		end_game(game);
 	}
 }
 
-static int	is_upperLowerWallPresent(t_gamedetails *game)
+static int	is_upperlowerpresent(t_gamedetails *game)
 {
 	int	i;
 	int	j;
@@ -72,7 +72,7 @@ static int	is_upperLowerWallPresent(t_gamedetails *game)
 	return (1);
 }
 
-static int	is_leftRigthWallPresent(t_gamedetails *game)
+static int	is_leftrightpresent(t_gamedetails *game)
 {
 	int	i;
 	int	j;
@@ -91,9 +91,9 @@ static int	is_leftRigthWallPresent(t_gamedetails *game)
 void	setup_check(t_gamedetails *game)
 {
 	check_mapchars(game);
-	if (!is_upperLowerWallPresent(game) || !is_leftRigthWallPresent(game))
+	if (!is_upperlowerpresent(game) || !is_leftrightpresent(game))
 	{
-		printf("\nMissingWallsError\n");
+		ft_printf("\nMissingWallsError\n");
 		end_game(game);
 	}
 }

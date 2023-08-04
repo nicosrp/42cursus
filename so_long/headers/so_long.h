@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prossi <prossi@student.42adel.org.au>      +#+  +:+       +#+        */
+/*   By: nsherpa <nsherpa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 20:15:54 by prossi            #+#    #+#             */
-/*   Updated: 2022/12/12 20:41:55 by prossi           ###   ########.fr       */
+/*   Created: 2023/08/04 16:59:00 by nsherpa           #+#    #+#             */
+/*   Updated: 2023/08/04 18:46:08 by nsherpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <errno.h>
 # include <string.h>
 # include "get_next_line.h"
+# include "ft_printf.h"
 # include "../minilibx/mlx.h"
 
 typedef struct t_game
@@ -51,7 +52,9 @@ int			end_game(t_gamedetails *game);
 int			get_mapdata(t_gamedetails *game, char **argv);
 int			controls_working(int command, t_gamedetails *game);
 void		adding_in_graphics(t_gamedetails *game);
-void		place_images_in_game(t_gamedetails *game);
+void		match_images(t_gamedetails *game);
 void		setup_check(t_gamedetails *game);
+int			restricted_moving(t_gamedetails *game, int i, int j);
+int			moving_updown(t_gamedetails *game, int movement);
 
 #endif
