@@ -6,7 +6,7 @@
 /*   By: nsherpa <nsherpa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 16:59:00 by nsherpa           #+#    #+#             */
-/*   Updated: 2023/08/04 19:11:15 by nsherpa          ###   ########.fr       */
+/*   Updated: 2023/08/05 17:31:23 by nsherpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,8 @@ typedef struct t_game
 void		*ft_memset(void *b, int c, size_t length);
 int			end_game(t_gamedetails *game);
 int			get_mapdata(t_gamedetails *game, char **argv);
-int			controls_working(int command, t_gamedetails *game);
-void		adding_in_graphics(t_gamedetails *game);
-void		match_images(t_gamedetails *game);
+int			commands(int command, t_gamedetails *game);
+void		adding_allimages(t_gamedetails *game);
 void		setup_check(t_gamedetails *game);
 int			restricted_moving(t_gamedetails *game, int i, int j);
 int			moving_updown(t_gamedetails *game, int movement);

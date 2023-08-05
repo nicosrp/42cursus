@@ -6,7 +6,7 @@
 /*   By: nsherpa <nsherpa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 16:57:59 by nsherpa           #+#    #+#             */
-/*   Updated: 2023/08/04 19:13:41 by nsherpa          ###   ########.fr       */
+/*   Updated: 2023/08/05 17:25:47 by nsherpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	setup_player(t_gamedetails *game, int height, int width)
 	game->player_x = width;
 }
 
-void	match_images(t_gamedetails *game)
+static void	match_images(t_gamedetails *game)
 {
 	int	i;
 	int	j;
@@ -44,7 +44,7 @@ void	match_images(t_gamedetails *game)
 			"image_res/collectable.xpm", &i, &j);
 }
 
-static void	place_graphics(
+static void	place_images(
 		t_gamedetails *game,
 		char symbol,
 		int height,
@@ -77,11 +77,12 @@ static void	place_graphics(
 			height * 40);
 }
 
-void	adding_in_graphics(t_gamedetails *game)
+void	adding_allimages(t_gamedetails *game)
 {
 	int	h;
 	int	w;
 
+	match_images(game);
 	game->collectables = 0;
 	h = 0;
 	while (h < game->map_height)
@@ -89,7 +90,7 @@ void	adding_in_graphics(t_gamedetails *game)
 		w = 0;
 		while (game->map[h][w])
 		{
-			place_graphics(game, game->map[h][w], h, w);
+			place_images(game, game->map[h][w], h, w);
 			w++;
 		}
 		h++;

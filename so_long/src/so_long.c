@@ -6,7 +6,7 @@
 /*   By: nsherpa <nsherpa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 16:58:26 by nsherpa           #+#    #+#             */
-/*   Updated: 2023/08/04 19:05:52 by nsherpa          ###   ########.fr       */
+/*   Updated: 2023/08/05 17:31:59 by nsherpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	end_game(t_gamedetails *game)
 {
-	int	line;
+	int	i;
 
-	line = 0;
+	i = 0;
 	if (game->winpointer)
 		mlx_destroy_window(game->mlxpointer, game->winpointer);
 	free(game->mlxpointer);
-	while (line < game->map_height - 1)
-		free(game->map[line++]);
+	while (i < game->map_height - 1)
+		free(game->map[i++]);
 	free(game->map);
 	exit(0);
 }
@@ -38,9 +38,8 @@ int	main(int argc, char **argv)
 	game.mlxpointer = mlx_init();
 	game.winpointer = mlx_new_window(game.mlxpointer, (game.map_width * 40),
 			(game.map_height * 40), "solong");
-	match_images(&game);
-	adding_in_graphics(&game);
-	mlx_key_hook(game.winpointer, controls_working, &game);
+	adding_allimages(&game);
+	mlx_key_hook(game.winpointer, commands, &game);
 	mlx_hook(game.winpointer, 17, 0, (void *)exit, 0);
 	mlx_loop(game.mlxpointer);
 }

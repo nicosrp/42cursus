@@ -6,7 +6,7 @@
 /*   By: nsherpa <nsherpa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 16:57:46 by nsherpa           #+#    #+#             */
-/*   Updated: 2023/08/04 19:13:47 by nsherpa          ###   ########.fr       */
+/*   Updated: 2023/08/05 17:31:08 by nsherpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,21 @@ static int	moving_leftright(t_gamedetails *game, int movement)
 		return (0);
 }
 
-int	controls_working(int command, t_gamedetails *game)
+int	commands(int c, t_gamedetails *game)
 {
-	int	works;
+	int	com;
 
-	if (command == 53)
+	if (c == 53)
 		end_game(game);
-	if (command == 13)
-		works = moving_updown(game, command);
-	if (command == 1)
-		works = moving_updown(game, command);
-	if (command == 0)
-		works = moving_leftright(game, command);
-	if (command == 2)
-		works = moving_leftright(game, command);
-	if (works)
-		adding_in_graphics(game);
+	if (c == 13)
+		com = moving_updown(game, c);
+	if (c == 1)
+		com = moving_updown(game, c);
+	if (c == 0)
+		com = moving_leftright(game, c);
+	if (c == 2)
+		com = moving_leftright(game, c);
+	if (com)
+		adding_allimages(game);
 	return (1);
 }
