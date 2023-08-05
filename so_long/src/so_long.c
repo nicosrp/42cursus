@@ -6,7 +6,7 @@
 /*   By: nsherpa <nsherpa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 16:58:26 by nsherpa           #+#    #+#             */
-/*   Updated: 2023/08/05 17:31:59 by nsherpa          ###   ########.fr       */
+/*   Updated: 2023/08/05 19:24:50 by nsherpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@ int	main(int argc, char **argv)
 	t_gamedetails	game;
 
 	if (argc != 2)
+	{
+		ft_printf("Error\n");
+		ft_printf("ArgCError\n");
 		return (0);
+	}
 	ft_memset(&game, 0, sizeof(t_gamedetails));
 	get_mapdata(&game, argv);
 	setup_check(&game);

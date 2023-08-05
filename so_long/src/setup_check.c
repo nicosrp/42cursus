@@ -6,7 +6,7 @@
 /*   By: nsherpa <nsherpa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 16:58:17 by nsherpa           #+#    #+#             */
-/*   Updated: 2023/08/04 19:13:49 by nsherpa          ###   ########.fr       */
+/*   Updated: 2023/08/05 19:11:44 by nsherpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ static void	check_countsetup(t_gamedetails *game, int h, int w)
 		game->map[h][w] != '0' &&
 		game->map[h][w] != '\n')
 	{
-		ft_printf("\nNo usable Character: %c\n", game->map[h][w]);
+		ft_printf("Error\n");
+		ft_printf("Unknown Map Occurence %c\n", game->map[h][w]);
 		end_game(game);
 	}
 	if (game->map[h][w] == 'P')
@@ -51,6 +52,7 @@ void	check_mapchars(t_gamedetails *game)
 	if (!(game->check_player == 1 && game->check_cols > 1
 			&& game->check_door == 1))
 	{
+		ft_printf("Error\n");
 		ft_printf("Character Error (P/E/C)\n");
 		end_game(game);
 	}
@@ -93,7 +95,8 @@ void	setup_check(t_gamedetails *game)
 	check_mapchars(game);
 	if (!is_upperlowerpresent(game) || !is_leftrightpresent(game))
 	{
-		ft_printf("\nMissingWallsError\n");
+		ft_printf("Error\n" );
+		ft_printf("MissingWallsError\n");
 		end_game(game);
 	}
 }

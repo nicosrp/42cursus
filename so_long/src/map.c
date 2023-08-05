@@ -6,7 +6,7 @@
 /*   By: nsherpa <nsherpa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 16:58:08 by nsherpa           #+#    #+#             */
-/*   Updated: 2023/08/05 17:07:19 by nsherpa          ###   ########.fr       */
+/*   Updated: 2023/08/05 19:37:34 by nsherpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ int	get_mapdata(t_gamedetails *game, char **argv)
 {
 	char	*read;
 
+	if (open(argv[1], O_RDONLY) == -1)
+	{
+		ft_printf("Error\n");
+		ft_printf("Map can not be loaded\n");
+		end_game(game);
+	}
 	game->fd = open(argv[1], O_RDONLY);
 	if (game->fd < 0)
 		return (0);
