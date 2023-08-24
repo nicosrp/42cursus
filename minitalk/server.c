@@ -6,13 +6,13 @@
 /*   By: nsherpa <nsherpa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 16:35:37 by nsherpa           #+#    #+#             */
-/*   Updated: 2023/08/16 17:49:18 by nsherpa          ###   ########.fr       */
+/*   Updated: 2023/08/24 20:09:14 by nsherpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf/ft_printf.h"
 
-void	ft_brain(int sign)
+void	ft_receiver(int sign)
 {
 	static int	x;
 	static int	y;
@@ -41,7 +41,7 @@ int	main(void)
 	struct sigaction	signal;
 	pid_t				pid;
 
-	signal.sa_handler = &ft_brain;
+	signal.sa_handler = &ft_receiver;
 	signal.sa_flags = SA_RESTART;
 	sigaction(SIGUSR1, &signal, NULL);
 	sigaction(SIGUSR2, &signal, NULL);

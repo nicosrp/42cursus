@@ -6,11 +6,11 @@
 /*   By: nsherpa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 18:41:37 by nsherpa           #+#    #+#             */
-/*   Updated: 2023/02/17 18:02:02 by nsherpa          ###   ########.fr       */
+/*   Updated: 2023/08/16 16:48:35 by nsherpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h"
+#include "libft.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {

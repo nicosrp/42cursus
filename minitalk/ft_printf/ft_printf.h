@@ -6,7 +6,7 @@
 /*   By: nsherpa <nsherpa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 18:39:45 by nsherpa           #+#    #+#             */
-/*   Updated: 2023/08/16 17:18:29 by nsherpa          ###   ########.fr       */
+/*   Updated: 2023/08/24 20:10:52 by nsherpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int		ft_lenuint(unsigned int n);
 int		ft_lenint(int i);
 int		ft_putnbrpf_hex(unsigned int u, char c);
 int		ft_ptrpf(uintptr_t u);
-int     ft_atoi(const char *str);
+int		ft_atoi(const char *str);
 
 #endif

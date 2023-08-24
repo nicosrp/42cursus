@@ -6,13 +6,13 @@
 /*   By: nsherpa <nsherpa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 16:35:00 by nsherpa           #+#    #+#             */
-/*   Updated: 2023/08/16 17:50:27 by nsherpa          ###   ########.fr       */
+/*   Updated: 2023/08/24 20:09:06 by nsherpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf/ft_printf.h"
 
-void	ft_mtalk(char *str, gid_t pid)
+void	ft_minitalk(char *str, gid_t pid)
 {
 	int	bit;
 
@@ -48,7 +48,7 @@ int	main(int ac, char *av[])
 	{
 		pid = ft_atoi(av[1]);
 		while (av[2][++i])
-			ft_mtalk(&av[2][i], pid);
+			ft_minitalk(&av[2][i], pid);
 		ft_printf("Sent Message: %s", av[2]);
 	}
 }
