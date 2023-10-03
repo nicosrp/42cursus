@@ -6,7 +6,7 @@
 /*   By: nsherpa <nsherpa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 16:35:00 by nsherpa           #+#    #+#             */
-/*   Updated: 2023/08/24 20:09:06 by nsherpa          ###   ########.fr       */
+/*   Updated: 2023/10/03 15:11:26 by nsherpa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int ac, char *av[])
 	i = -1;
 	if (ac != 3)
 	{
-		ft_printf("Failed to process input, must be: [PID] [MESSAGE]");
+		ft_printf("Failed to process input, must have format: [PID] [MESSAGE]");
 		return (0);
 	}
 	else
